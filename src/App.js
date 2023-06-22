@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./Home";
 
-function App() {
+import {useState} from "react";
+ function App() {
+  const[num, setNum] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>{num}</h1>
+    <p>
+      {num === 15 ? 'max' : num === 1 ? 'min' : num === 11 ? 'get out of here': ''}
+    </p>
+    <button onClick= { () => {
+      if(num < 15){
+        setNum(num+1)
+      }
+     
+    }}>+</button>
+
+    <button onClick={() => {
+    if(num > 0){
+      setNum(num-1)
+    };
+      
+    }}>-</button>
+
+    <button onClick={() => {
+      setNum(0)
+    }}>reset</button>
+
+    <button onClick={() => {
+      setNum(num+5)
+    }}>+5</button>
+
+    <button onClick={() => {
+      setNum(1)
+    }}>min</button>
+
+<button onClick={() => {
+      setNum(15)
+    }}>max</button>
+
+
+<button onClick={() => {
+      setNum(num+500000   )
+    }}>+500000</button>
     </div>
   );
 }
